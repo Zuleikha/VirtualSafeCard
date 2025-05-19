@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virtual Card System - Home</title>
-    <meta name="description" content="Secure your online purchases with our global virtual card system. Protect your primary bank accounts and credit cards from online fraud.">
+    <meta name="description" content="Secure your online payments without exposing your card details. An extra layer of security for all your online purchases.">
     
     <!-- Content for the home page -->
     <style>
@@ -199,8 +199,49 @@
             margin-bottom: 10px;
         }
         
-        .testimonials {
+        .how-it-works {
             background-color: var(--light-gray);
+            padding: 80px 0;
+        }
+        
+        .steps-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .step-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 250px;
+            text-align: center;
+        }
+        
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        
+        .step-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .testimonials {
+            background-color: var(--white);
             padding: 80px 0;
         }
         
@@ -211,7 +252,7 @@
         }
         
         .testimonial-card {
-            background-color: var(--white);
+            background-color: var(--light-gray);
             border-radius: 8px;
             padding: 30px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -243,6 +284,38 @@
         .author-info p {
             color: var(--dark-gray);
             font-size: 14px;
+        }
+        
+        .trust-section {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+            text-align: center;
+        }
+        
+        .trust-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .trust-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 200px;
+        }
+        
+        .trust-icon i {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .trust-icon h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
         }
         
         .cta-section {
@@ -372,30 +445,58 @@
 
     <section class="hero">
         <div class="container">
-            <h1>Shop Online Securely and Confidently.<br>Your Money, Protected.</h1>
-            <p>Our global virtual card system provides a secure layer between your primary accounts and online merchants, protecting you from fraud while giving you complete control over your spending.</p>
-            <a href="#learn-more" class="cta-button">Learn More</a>
+            <h1>Secure Online Payments Without Exposing Your Card Details</h1>
+            <p>An extra layer of security for all your online purchases. Keep your actual payment information completely private.</p>
+            <a href="#learn-more" class="cta-button">Create Your Secure Virtual Card</a>
         </div>
     </section>
 
     <section id="learn-more" class="benefits">
         <div class="container">
-            <h2 class="section-title">Why Choose Virtual Cards?</h2>
+            <h2 class="section-title">Key Benefits</h2>
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <i>🔒</i>
                     <h3>Enhanced Security</h3>
-                    <p>Keep your primary bank accounts and credit cards safe by using disposable virtual cards for online purchases.</p>
+                    <p>Generate temporary virtual cards for online purchases. Keep your actual payment information completely private. Control exactly how and where each virtual card can be used.</p>
+                </div>
+                <div class="benefit-card">
+                    <i>🌐</i>
+                    <h3>Universal Compatibility</h3>
+                    <p>Works with any merchant that accepts card payments. No special integration required by sellers. One system for all your online shopping needs.</p>
                 </div>
                 <div class="benefit-card">
                     <i>🎮</i>
                     <h3>Complete Control</h3>
-                    <p>Set spending limits, create single-use or recurring cards, and manage all your virtual cards in one place.</p>
+                    <p>Set spending limits for each virtual card. Create single-use or recurring payment cards. Instantly freeze or cancel cards when needed.</p>
                 </div>
-                <div class="benefit-card">
-                    <i>🌐</i>
-                    <h3>Global Accessibility</h3>
-                    <p>Available worldwide with multiple funding options including PayPal and bank transfers.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Create a Secure Virtual Card</h3>
+                    <p>Generate a virtual card in seconds with your desired spending limits and usage restrictions.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Use It For Online Purchases</h3>
+                    <p>Use the virtual card details instead of your real card when shopping online.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Keep Your Details Private</h3>
+                    <p>Merchants only see the virtual card details, never your actual payment information.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Manage All Cards Easily</h3>
+                    <p>Control all your virtual cards from one simple, intuitive dashboard.</p>
                 </div>
             </div>
         </div>
@@ -463,6 +564,29 @@
         </div>
     </section>
 
+    <section class="trust-section">
+        <div class="container">
+            <h2 class="section-title">Trust & Security</h2>
+            <div class="trust-icons">
+                <div class="trust-icon">
+                    <i>🔐</i>
+                    <h3>Bank-Level Encryption</h3>
+                    <p>Your information is protected with the same encryption standards used by major financial institutions.</p>
+                </div>
+                <div class="trust-icon">
+                    <i>📜</i>
+                    <h3>Regulatory Compliance</h3>
+                    <p>We adhere to all financial regulations and industry standards to ensure your security.</p>
+                </div>
+                <div class="trust-icon">
+                    <i>👁️</i>
+                    <h3>Fraud Monitoring</h3>
+                    <p>Real-time transaction monitoring to detect and prevent fraudulent activity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="testimonials">
         <div class="container">
             <h2 class="section-title">User Stories</h2>
@@ -490,5 +614,75 @@
                 <div class="testimonial-card">
                     <p class="testimonial-text">"I'm very concerned about my digital privacy. This service lets me make purchases without exposing my personal financial information to every online store I visit."</p>
                     <div class="testimonial-author">
-                        <div clas
-(Content truncated due to size limit. Use line ranges to read in chunks)
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h4>Elena K.</h4>
+                            <p>Privacy Advocate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Secure Your Online Payments?</h2>
+            <p>Create your first virtual card today and experience a new level of security for all your online purchases.</p>
+            <a href="#" class="cta-button">Get Started Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>SecureCard</h3>
+                    <p>The safest way to pay online without exposing your primary financial details.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="security.html">Security</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="regulatory.html">Compliance</a></li>
+                        <li><a href="business.html">Business Model</a></li>
+                        <li><a href="technical.html">Technical</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 SecureCard. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
