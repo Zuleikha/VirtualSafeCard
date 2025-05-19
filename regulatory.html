@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regulatory Compliance - Virtual Card System</title>
+    <meta name="description" content="Learn about the regulatory compliance framework for our global virtual card system, including KYC/AML, payment processing licenses, and data privacy regulations.">
+    
+    <!-- Styles will be moved to external CSS file during development -->
+    <style>
+        /* Same base styles as other pages */
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #34a853;
+            --accent-color: #fbbc04;
+            --text-color: #202124;
+            --light-gray: #f8f9fa;
+            --medium-gray: #dadce0;
+            --dark-gray: #5f6368;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 30px;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .page-header p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 36px;
+            color: var(--primary-color);
+        }
+        
+        .regulatory-overview {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .overview-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .overview-content p {
+            margin-bottom: 20px;
+        }
+        
+        .overview-content ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .overview-content li {
+            margin-bottom: 10px;
+        }
+        
+        .regulatory-details {
+            padding: 80px 0;
+        }
+        
+        .regulatory-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 15px 25px;
+            background-color: var(--light-gray);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin: 5px;
+            border-radius: 30px;
+        }
+        
+        .tab.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .tab-content {
+            display: none;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .tab-content h3 {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .tab-content p {
+            margin-bottom: 20px;
+        }
+        
+        .tab-content ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .tab-content li {
+            margin-bottom: 10px;
+        }
+        
+        .global-approach {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .approach-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .approach-card h3 {
+            font-size: 20px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .approach-card p {
+            color: var(--dark-gray);
+        }
+        
+        .compliance-faq {
+            padding: 80px 0;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            background-color: var(--white);
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 20px;
+        }
+        
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 1000px;
+        }
+        
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #f0b400;
+        }
+        
+        footer {
+            background-color: var(--text-color);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--medium-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--dark-gray);
+            color: var(--medium-gray);
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background-color: var(--white);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+                padding: 20px 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .page-header h1 {
+                font-size: 32px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .tab {
+                width: calc(50% - 10px);
+                text-align: center;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container container">
+            <a href="index.html" class="logo">SecureCard</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="regulatory.html">Compliance</a></li>
+                    <li><a href="business.html">Business Model</a></li>
+                    <li><a href="technical.html">Technical</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Regulatory Compliance</h1>
+            <p>Our commitment to meeting global financial regulations while protecting your data and privacy</p>
+        </div>
+    </section>
+
+    <section class="regulatory-overview">
+        <div class="container">
+            <h2 class="section-title">Compliance Framework</h2>
+            <div class="overview-content">
+                <p>Operating a global virtual card system requires adherence to a complex web of financial regulations and security standards. Our comprehensive compliance framework is designed to meet or exceed requirements across multiple jurisdictions while providing a seamless user experience.</p>
+                
+                <p>Our regulatory approach is built on four key pillars:</p>
+                
+                <ul>
+                    <li><strong>Know Your Customer (KYC) & Anti-Money Laundering (AML):</strong> Robust identity verification and transaction monitoring to prevent financial crimes while protecting legitimate users.</li>
+                    <li><strong>Payment Processing Licenses & PCI DSS:</strong> Proper licensing and adherence to the Payment Card Industry Data Security Standard to ensure secure handling of payment card information.</li>
+                    <li><strong>Data Privacy & Security:</strong> Compliance with global data protection regulations like GDPR and CCPA to safeguard user information.</li>
+                    <li><strong>Multi-Jurisdictional Approach:</strong> Strategies for navigating the complex regulatory landscape across different countries and regions.</li>
+                </ul>
+                
+                <p>This framework allows us to operate globally while maintaining the highest standards of security, privacy, and regulatory compliance. We continuously monitor regulatory changes and update our systems and processes accordingly to ensure ongoing compliance.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="regulatory-details">
+        <div class="container">
+            <h2 class="section-title">Detailed Compliance Information</h2>
+            
+            <div class="regulatory-tabs">
+                <button class="tab active" data-tab="kyc-aml">KYC & AML</button>
+                <button class="tab" data-tab="payment-processing">Payment Processing</button>
+                <button class="tab" data-tab="data-privacy">Data Privacy</button>
+                <button class="tab" data-tab="multi-jurisdictional">Global Approach</button>
+            </div>
+            
+            <div class="tab-content active" id="kyc-aml-content">
+                <h3>Know Your Customer (KYC) & Anti-Money Laundering (AML)</h3>
+                
+                <p>Virtual card systems face unique KYC and AML challenges due to their digital nature and potential for misuse. Our approach combines advanced technology with robust processes to ensure compliance while maintaining a smooth user experience.</p>
+                
+                <h4>Key Challenges We Address:</h4>
+                <ul>
+                    <li><strong>Identity Fraud Risk:</strong> The digital-only nature of our service, without face-to-face interaction, increases the risk of identity fraud. We implement advanced verification methods to mitigate this risk.</li>
+                    <li><strong>Deepfake Technology:</strong> AI-powered deepfakes pose a significant threat to remote identity verification. Our systems include specialized detection methods to combat this emerging threat.</li>
+                    <li><strong>Transactional Fraud:</strong> The speed and ease of virtual card issuance could potentially be exploited for money laundering through numerous small transactions. Our monitoring systems are designed to detect such patterns.</li>
+                    <li><strong>Cross-Border Complexity:</strong> Operating globally means navigating varying KYC/AML standards across jurisdictions, requiring a sophisticated compliance approach.</li>
+                </ul>
+                
+                <h4>Our KYC/AML Solutions:</h4>
+                <ul>
+                    <li><strong>Advanced Identity Verification:</strong> We employ multi-layered identity verification, including document validation, biometric matching, and liveness detection to ensure users are who they claim to be.</li>
+                    <li><strong>AI-Powered Screening:</strong> Automated screening against sanctions lists, Politically Exposed Persons (PEP) lists, and adverse media using advanced AI algorithms.</li>
+                    <li><strong>Real-time Transaction Monitoring:</strong> Sophisticated AI systems analyze transaction patterns to detect suspicious activity, with significantly improved fraud detection rates and reduced false positives.</li>
+                    <li><strong>Behavioral Analytics:</s
+(Content truncated due to size limit. Use line ranges to read in chunks)

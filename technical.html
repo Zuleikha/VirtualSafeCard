@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Infrastructure - Virtual Card System</title>
+    <meta name="description" content="Explore the technical architecture and infrastructure behind our secure virtual card system, including core components and technology stack.">
+    
+    <!-- Styles will be moved to external CSS file during development -->
+    <style>
+        /* Same base styles as other pages */
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #34a853;
+            --accent-color: #fbbc04;
+            --text-color: #202124;
+            --light-gray: #f8f9fa;
+            --medium-gray: #dadce0;
+            --dark-gray: #5f6368;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 30px;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .page-header p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 36px;
+            color: var(--primary-color);
+        }
+        
+        .tech-overview {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .overview-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .overview-content p {
+            margin-bottom: 20px;
+        }
+        
+        .architecture-section {
+            padding: 80px 0;
+        }
+        
+        .architecture-diagram {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .diagram-img {
+            width: 100%;
+            height: 400px;
+            background-color: #eee;
+            margin-bottom: 30px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .architecture-components {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .component-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            height: 100%;
+        }
+        
+        .component-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .component-card p {
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+        }
+        
+        .component-card ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .component-card li {
+            margin-bottom: 10px;
+        }
+        
+        .tech-stack {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .stack-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .stack-category {
+            margin-bottom: 40px;
+        }
+        
+        .stack-category:last-child {
+            margin-bottom: 0;
+        }
+        
+        .stack-category h3 {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .tech-item {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .tech-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .tech-name {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .tech-description {
+            font-size: 14px;
+            color: var(--dark-gray);
+        }
+        
+        .security-section {
+            padding: 80px 0;
+        }
+        
+        .security-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .security-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            height: 100%;
+        }
+        
+        .security-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .security-card p {
+            color: var(--dark-gray);
+        }
+        
+        .scalability-section {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .scalability-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .scalability-content h3 {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .scalability-content p {
+            margin-bottom: 20px;
+        }
+        
+        .scalability-content ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .scalability-content li {
+            margin-bottom: 10px;
+        }
+        
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #f0b400;
+        }
+        
+        footer {
+            background-color: var(--text-color);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--medium-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--dark-gray);
+            color: var(--medium-gray);
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background-color: var(--white);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+                padding: 20px 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .page-header h1 {
+                font-size: 32px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container container">
+            <a href="index.html" class="logo">SecureCard</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="regulatory.html">Compliance</a></li>
+                    <li><a href="business.html">Business Model</a></li>
+                    <li><a href="technical.html">Technical</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Technical Infrastructure</h1>
+            <p>The robust architecture powering our secure virtual card system</p>
+        </div>
+    </section>
+
+    <section class="tech-overview">
+        <div class="container">
+            <h2 class="section-title">Technical Overview</h2>
+            <div class="overview-content">
+                <p>Our virtual card system is built on a modern, scalable, and secure technical infrastructure designed to handle millions of users and transactions while maintaining the highest levels of security and reliability. The architecture follows cloud-native principles, employing microservices, containerization, and infrastructure-as-code to ensure flexibility, resilience, and operational efficiency.</p>
+                
+                <p>The system is designed with several key technical principles in mind:</p>
+                <ul>
+                    <li><strong>Security by Design:</strong> Security is integrated into every layer of the architecture, not added as an afterthought.</li>
+                    <li><strong>Scalability:</strong> The system can scale horizontally to handle growing user bases and transaction volumes.</li>
+                    <li><strong>High Availability:</strong> Multiple redundancy layers ensure the service remains available even during component failures.</li>
+                    <li><strong>Compliance:</strong> The architecture is designed to meet global regulatory requirements for financial services.</li>
+                    <li><strong>Extensibility:</strong> Modular design allows for easy addition of new features and integration with third-party services.</li>
+                </ul>
+                
+                <p>This technical foundation enables us to provide a reliable, secure, and responsive virtual card service that can adapt to evolving user needs and market conditions.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="architecture-section">
+        <div class="container">
+            <h2 class="section-title">System Architecture</h2>
+            
+            <div class="architecture-diagram">
+                <div class="diagram-img">
+                    [System Architecture Diagram: Microservices architecture showing user interfaces, API gateway, core services, security layers, and external integrations]
+                </div>
+                <p>Our system follows a microservices architecture pattern, with distinct services handling specific functions while communicating through well-defined APIs. This approach allows for independent scaling, development, and deployment of different system components.</p>
+            </div>
+            
+            <div class="architecture-components">
+                <div class="component-card">
+                    <h3>User Authentication & Management</h3>
+                    <p>Handles user identity, authentication, and profile management:</p>
+                    <ul>
+                        <li><strong>Multi-factor Authentication:</strong> Supports various authentication methods including passwords, biometrics, and one-time codes.</li>
+                        <li><strong>Identity Verification:</strong> Integration with KYC/AML services for user verification.</li>
+                        <li><strong>Profile Management:</strong> Secure storage and management of user profile information.</li>
+                        <li><strong>Session Management:</strong> Secure handling of user sessions across devices.</li>
+                        <li><strong>Permission System:</strong> Role-based access control for different user types.</li>
+                    </ul>
+                    <p>This component ensures that only authorized users can access the system and their specific resources.</p>
+                </div>
+                
+                <div class="component-card">
+                    <h3>Wallet Management</h3>
+                    <p>Manages user funds and financial transactions:</p>
+       
+(Content truncated due to size limit. Use line ranges to read in chunks)

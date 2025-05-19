@@ -1,0 +1,474 @@
+.technical-page {
+  /* Technical page specific styles */
+}
+
+.architecture-overview {
+  padding: 80px 0;
+  background-color: var(--light-gray);
+}
+
+.overview-content {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.overview-content p {
+  margin-bottom: 20px;
+  color: var(--dark-gray);
+}
+
+.architecture-diagram {
+  height: 400px;
+  background-color: #eee;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0;
+  border: 1px solid var(--medium-gray);
+}
+
+.core-components {
+  padding: 80px 0;
+}
+
+.components-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.component-card {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.component-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.component-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.component-card h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+.component-card p {
+  margin-bottom: 20px;
+  color: var(--dark-gray);
+}
+
+.component-features {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.component-features li {
+  margin-bottom: 8px;
+  color: var(--dark-gray);
+}
+
+.tech-stack {
+  background-color: var(--light-gray);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.tech-stack h4 {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: var(--text-color);
+}
+
+.tech-stack p {
+  margin: 0;
+  color: var(--dark-gray);
+  font-size: 14px;
+}
+
+.technology-stack {
+  padding: 80px 0;
+  background-color: var(--light-gray);
+}
+
+.stack-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.stack-content > p {
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--dark-gray);
+}
+
+.stack-layers {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.stack-layer {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.stack-layer h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.tech-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.tech-item {
+  flex: 0 0 200px;
+  text-align: center;
+}
+
+.tech-logo {
+  background-color: var(--light-gray);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.tech-item p {
+  color: var(--dark-gray);
+  font-size: 14px;
+}
+
+.security-architecture {
+  padding: 80px 0;
+}
+
+.security-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.security-content > p {
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--dark-gray);
+}
+
+.security-layers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 30px;
+}
+
+.security-layer {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.security-layer h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.security-layer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.security-layer li {
+  margin-bottom: 15px;
+}
+
+.security-layer strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--text-color);
+}
+
+.scalability-reliability {
+  padding: 80px 0;
+  background-color: var(--light-gray);
+}
+
+.scalability-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.scalability-text {
+  margin-bottom: 40px;
+}
+
+.scalability-text > p {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--dark-gray);
+}
+
+.scalability-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.scalability-feature {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.scalability-feature h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+.scalability-feature p {
+  color: var(--dark-gray);
+  margin: 0;
+}
+
+.reliability-metrics h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.metric-card {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.metric-value {
+  font-size: 36px;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.metric-label {
+  color: var(--dark-gray);
+}
+
+.integration-capabilities {
+  padding: 80px 0;
+}
+
+.integration-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.integration-content > p {
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--dark-gray);
+}
+
+.integration-types {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.integration-type {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.integration-icon {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.integration-type h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+.integration-type p {
+  margin-bottom: 20px;
+  color: var(--dark-gray);
+}
+
+.integration-type ul {
+  margin-left: 20px;
+}
+
+.integration-type li {
+  margin-bottom: 8px;
+  color: var(--dark-gray);
+}
+
+.api-documentation {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.api-documentation h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+.api-documentation p {
+  margin-bottom: 20px;
+  color: var(--dark-gray);
+}
+
+.api-documentation ul {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.api-documentation li {
+  margin-bottom: 8px;
+  color: var(--dark-gray);
+}
+
+.documentation-link {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.documentation-link:hover {
+  background-color: #0d5bdd;
+}
+
+.development-roadmap {
+  padding: 80px 0;
+  background-color: var(--light-gray);
+}
+
+.roadmap-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.roadmap-content > p {
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--dark-gray);
+}
+
+.roadmap-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.roadmap-phase {
+  background-color: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.phase-header {
+  display: flex;
+  align-items: center;
+  background-color: var(--primary-color);
+  padding: 15px 20px;
+  color: var(--white);
+}
+
+.phase-quarter {
+  font-weight: bold;
+  margin-right: 20px;
+  padding: 5px 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.phase-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.phase-items {
+  padding: 20px;
+  margin: 0;
+}
+
+.phase-items li {
+  margin-bottom: 10px;
+  color: var(--dark-gray);
+}
+
+.phase-items li:last-child {
+  margin-bottom: 0;
+}
+
+.roadmap-note {
+  text-align: center;
+  font-style: italic;
+  color: var(--dark-gray);
+}
+
+@media (max-width: 768px) {
+  .security-layers {
+    grid-template-columns: 1fr;
+  }
+  
+  .scalability-features {
+    grid-template-columns: 1fr;
+  }
+  
+  .integration-types {
+    grid-template-columns: 1fr;
+  }
+  
+  .tech-items {
+    justify-content: flex-start;
+  }
+}

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security - Virtual Card System</title>
+    <meta name="description" content="Learn about the comprehensive security features that protect your financial information when using our virtual card system.">
+    
+    <!-- Styles will be moved to external CSS file during development -->
+    <style>
+        /* Same base styles as other pages */
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #34a853;
+            --accent-color: #fbbc04;
+            --text-color: #202124;
+            --light-gray: #f8f9fa;
+            --medium-gray: #dadce0;
+            --dark-gray: #5f6368;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 30px;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .page-header p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 36px;
+            color: var(--primary-color);
+        }
+        
+        .security-overview {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .security-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .security-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .security-icon {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .security-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .security-card p {
+            color: var(--dark-gray);
+        }
+        
+        .security-details {
+            padding: 80px 0;
+        }
+        
+        .security-item {
+            margin-bottom: 60px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .security-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .security-item-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .security-item-icon {
+            background-color: var(--primary-color);
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .security-item-title {
+            font-size: 28px;
+            color: var(--primary-color);
+        }
+        
+        .security-item-content {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-left: 40px;
+        }
+        
+        .security-item-content p {
+            margin-bottom: 15px;
+        }
+        
+        .security-item-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .security-item-content li {
+            margin-bottom: 10px;
+        }
+        
+        .security-diagram {
+            background-color: var(--light-gray);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .diagram-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .diagram-img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 30px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 4px;
+        }
+        
+        .security-faq {
+            padding: 80px 0;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            background-color: var(--white);
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 20px;
+        }
+        
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 1000px;
+        }
+        
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+            background-color: var(--light-gray);
+        }
+        
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #f0b400;
+        }
+        
+        footer {
+            background-color: var(--text-color);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--medium-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--dark-gray);
+            color: var(--medium-gray);
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background-color: var(--white);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+                padding: 20px 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .page-header h1 {
+                font-size: 32px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .security-item-content {
+                margin-left: 0;
+            }
+            
+            .security-item-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .security-item-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container container">
+            <a href="index.html" class="logo">SecureCard</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="regulatory.html">Compliance</a></li>
+                    <li><a href="business.html">Business Model</a></li>
+                    <li><a href="technical.html">Technical</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Security Architecture</h1>
+            <p>Discover how our multi-layered security approach protects your financial information and prevents fraud</p>
+        </div>
+    </section>
+
+    <section class="security-overview">
+        <div class="container">
+            <h2 class="section-title">Security at Every Level</h2>
+            <div class="security-grid">
+                <div class="security-card">
+                    <div class="security-icon">🛡️</div>
+                    <h3>Account Protection</h3>
+                    <p>Multi-factor authentication, biometric verification, and advanced encryption protect your account from unauthorized access.</p>
+                </div>
+                <div class="security-card">
+                    <div class="security-icon">🔒</div>
+                    <h3>Data Security</h3>
+                    <p>End-to-end encryption and tokenization ensure your sensitive financial information is never exposed to merchants or potential attackers.</p>
+                </div>
+                <div class="security-card">
+                    <div class="security-icon">🔍</div>
+                    <h3>Fraud Prevention</h3>
+                    <p>AI-powered monitoring systems detect suspicious activities in real-time, preventing unauthorized transactions before they occur.</p>
+                </div>
+                <div class="security-card">
+                    <div class="security-icon">📱</div>
+                    <h3>Transaction Control</h3>
+                    <p>Instant notifications, spending limits, and the ability to lock cards immediately give you complete control over your virtual cards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="security-details">
+        <div class="container">
+            <h2 class="section-title">Comprehensive Security Features</h2>
+            
+            <div class="security-item">
+                <div class="security-item-header">
+                    <div class="security-item-icon">1</div>
+                    <h3 class="security-item-title">Primary Account Protection</h3>
+                </div>
+                <div class="security-item-content">
+                    <p>The core security benefit of our virtual card system is that your primary financial accounts remain completely isolated from online merchants and potential data breaches:</p>
+                    <ul>
+                        <li><strong>Separation Layer:</strong> Virtual cards create a secure barrier between your primary accounts and online merchants, ensuring your actual bank account or credit card details are never exposed during transactions.</li>
+                        <li><strong>Limited Exposure:</strong> Even if a virtual card is compromised, only the funds allocated to that specific card are at risk, not your entire bank account or credit line.</li>
+                        <li><strong>Disposable Cards:</strong> Single-use virtual cards automatically close after one transaction, eliminating the risk of recurring unauthorized charges.</li>
+                        <li><strong>Merchant-Specific Cards:</strong> Cards can be locked to specific merchants, rendering them useless if stolen and attempted to be used elsewhere.</li>
+                    </ul>
+                    <p>This isolation strategy is the foundation of our security architecture, dramatically reducing the potential impact of data breaches and fraud.</p>
+                </div>
+            </div>
+            
+            <div class="security-item">
+                <div class="security-item-header">
+                    <div class="security-item-icon">2</div>
+                    <h3 class="security-item-title">Advanced Encryption & Tokenization</h3>
+                </div>
+                <div class="security-item-content">
+                    <p>We employ industry-leading encryption and tokenization technologies to protect all sensitive data:</p>
+                    <ul>
+                        <li><strong>AES-256 Encryption:</strong> All sensitive data is encrypted using Advanced Encryption Standard with 256-bit keys, the same level of encryption used by governments and military organizations.</li>
+                        <li><strong>Tokenization:</strong> Card details are converted into unique tokens that maintai
+(Content truncated due to size limit. Use line ranges to read in chunks)

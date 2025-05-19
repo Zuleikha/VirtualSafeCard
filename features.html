@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Virtual Card System</title>
+    <meta name="description" content="Explore the comprehensive features of our virtual card system, including card types, spending controls, security features, and more.">
+    
+    <!-- Styles will be moved to external CSS file during development -->
+    <style>
+        /* Same base styles as other pages */
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #34a853;
+            --accent-color: #fbbc04;
+            --text-color: #202124;
+            --light-gray: #f8f9fa;
+            --medium-gray: #dadce0;
+            --dark-gray: #5f6368;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 30px;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .page-header p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 36px;
+            color: var(--primary-color);
+        }
+        
+        .features-section {
+            padding: 80px 0;
+        }
+        
+        .feature-category {
+            margin-bottom: 80px;
+        }
+        
+        .feature-category:last-child {
+            margin-bottom: 0;
+        }
+        
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .category-icon {
+            font-size: 36px;
+            margin-right: 20px;
+            color: var(--primary-color);
+        }
+        
+        .category-title {
+            font-size: 28px;
+            color: var(--primary-color);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .feature-card p {
+            color: var(--dark-gray);
+        }
+        
+        .comparison-section {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .comparison-table-container {
+            overflow-x: auto;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 40px;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+        
+        .comparison-table th {
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-weight: 500;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: rgba(0,0,0,0.02);
+        }
+        
+        .comparison-table tr:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
+        
+        .check-icon {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        .x-icon {
+            color: #ea4335;
+            font-weight: bold;
+        }
+        
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #f0b400;
+        }
+        
+        footer {
+            background-color: var(--text-color);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--medium-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--dark-gray);
+            color: var(--medium-gray);
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background-color: var(--white);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+                padding: 20px 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .page-header h1 {
+                font-size: 32px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .category-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container container">
+            <a href="index.html" class="logo">SecureCard</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="regulatory.html">Compliance</a></li>
+                    <li><a href="business.html">Business Model</a></li>
+                    <li><a href="technical.html">Technical</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Comprehensive Features</h1>
+            <p>Discover the powerful capabilities that make our virtual card system the safest and most flexible way to shop online</p>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Core Features</h2>
+            
+            <div class="feature-category">
+                <div class="category-header">
+                    <div class="category-icon">🔄</div>
+                    <h2 class="category-title">Card Types & Generation</h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Instant Card Generation</h3>
+                        <p>Create virtual cards on demand with unique card numbers, expiration dates, and CVV codes. Our system generates cards instantly, allowing you to shop online without delay.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Single-Use Cards</h3>
+                        <p>Perfect for one-time purchases on unfamiliar websites. These cards automatically close after the first transaction, eliminating the risk of unauthorized recurring charges or data breaches.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Multi-Use Cards</h3>
+                        <p>Standard virtual cards that can be used for multiple purchases. Ideal for trusted merchants or recurring payments, these cards remain active until you choose to close them.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Merchant-Locked Cards</h3>
+                        <p>Restrict cards to specific merchants for enhanced security. Even if card details are compromised, they cannot be used elsewhere, providing an additional layer of protection.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Recurring Payment Support</h3>
+                        <p>Dedicated cards for subscription services with special handling to ensure uninterrupted service while maintaining security and control over your recurring payments.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Bulk Card Creation</h3>
+                        <p>Generate multiple virtual cards simultaneously for different purposes, saving time when preparing for various online purchases or subscription services.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="feature-category">
+                <div class="category-header">
+                    <div class="category-icon">💰</div>
+                    <h2 class="category-title">Spending Controls</h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Transaction Limits</h3>
+                        <p>Set maximum spending limits per transaction to prevent large unauthorized charges. Perfect for controlling exactly how much can be spent in a single purchase.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Time-Based Limits</h3>
+                        <p>Define daily, weekly, or monthly spending caps to maintain budget control and add an extra layer of security to your virtual cards.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Card Lifecycle Management</h3>
+                        <p>Instantly pause, resume, or permanently close virtual cards with a single click, giving you complete control over when and how your cards can be used.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Merchant Category Restrictions</h3>
+                        <p>Limit card usage to specific merchant categories, preventing unauthorized use in unintended business types or potentially fraudulent sectors.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Geographic Restrictions</h3>
+                        <p>Add location-based controls to your virtual cards, limiting usage to specific countries or regions for additional security against international fraud.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Expiration Date Control</h3>
+                        <p>Set custom expiration dates for your virtual cards, ensuring they automatically deactivate after a predetermined period even without manual intervention.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="feature-category">
+                <div class="category-header">
+                    <div class="category-icon">💳</div>
+                    <h2 class="category-title">Funding Methods</h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Bank Transfer Integration</h3>
+                        <p>Fund your virtual card wallet directly from your bank account using secure ACH transfers or international equivalents, with support for various banking systems worldwide.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>PayPal Compatibility</h3>
+                        <p>Add funds to your wallet using PayPal, leveraging the convenience and security of this widely-used payment platform without exposing your PayPal details to merchants.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Debit/Credit Card Funding</h3>
+                        <p>Link existing debit or credit cards to fund your virtual card wallet, creating an additional security layer between your primary cards and online merchants.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Automatic Top-Up</h3>
+                        <p>Set up automatic funding from your preferred payment source when your wallet balance falls below a specified threshol
+(Content truncated due to size limit. Use line ranges to read in chunks)
